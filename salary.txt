@@ -1,0 +1,5 @@
+Boris Borodach,50000
+Valera Veselun,22000
+Slava Hohmach,28000
+Tania Krasa,20000
+Elena Mala,21000
