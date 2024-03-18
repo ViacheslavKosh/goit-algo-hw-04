@@ -8,18 +8,19 @@ def add_contact(args, contacts):
     contacts[name] = phone
     return "Contact added."
 
-
 def change_contact(args, contacts):
     name, phone = args
     if name not in contacts:
-        raise ValueError("Contact")
+        print(f"There is no such name {name} in contacts. Contact was added.")
     contacts[name] = phone
     return "Contact updated successfully"
 
 def show_contact(args, contacts):
-    name = args[0]
-    return contacts[name]
-
+    try:
+        name = args[0]
+        return contacts[name]
+    except KeyError:
+        print(f"There is no such name {name} in contacts.")
 
 def main():
     contacts = {}
@@ -37,8 +38,7 @@ def main():
 
         elif command == "add":
             print(add_contact(args, contacts))
-            # print(contacts)
-
+            
         elif command == "change":
             print(change_contact(args, contacts))
 
@@ -47,10 +47,9 @@ def main():
         
         elif command == "all":
             print(f'All contacts: {contacts}')
+        
         else:
             print("Invalid command.")
-            # print(contacts)
-
-
+            
 if __name__ == "__main__":
     main()
